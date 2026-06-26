@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block title %}Add Task{% endblock %}
+{% block main %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h2 class="mb-4"><i class="bi bi-plus-circle"></i> New Task</h2>
+    <form method="post" action="/add">
+      <div class="mb-3">
+        <label class="form-label fw-semibold">Title <span class="text-danger">*</span></label>
+        <input autofocus class="form-control" name="title" type="text" placeholder="What needs to be done?" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label fw-semibold">Description</label>
+        <textarea class="form-control" name="description" rows="3" placeholder="Optional details..."></textarea>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label class="form-label fw-semibold">Category</label>
+          <input class="form-control" name="category" type="text" placeholder="e.g. Work, Personal">
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label fw-semibold">Priority</label>
+          <select class="form-select" name="priority">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label class="form-label fw-semibold">Due Date</label>
+          <input class="form-control" name="due_date" type="date">
+        </div>
+      </div>
+      <div class="d-flex gap-2">
+        <button class="btn btn-primary" type="submit"><i class="bi bi-plus-lg"></i> Add Task</button>
+        <a href="/" class="btn btn-outline-secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
