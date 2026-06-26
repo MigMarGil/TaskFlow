@@ -1,5 +1,4 @@
 {% extends "layout.html" %}
-{% block title %}Login{% endblock %}
 {% block main %}
 <div class="row justify-content-center mt-5">
   <div class="col-md-4">
@@ -8,17 +7,17 @@
         <h2 class="text-center mb-4"><i class="bi bi-check2-square text-primary"></i> TaskFlow</h2>
         <form method="post" action="/login">
           <div class="mb-3">
-            <label class="form-label">Username</label>
+            <label class="form-label">{{ t.label_username }}</label>
             <input autofocus class="form-control" name="username" type="text" autocomplete="off">
           </div>
           <div class="mb-3">
-            <label class="form-label">Password</label>
+            <label class="form-label">{{ t.label_password }}</label>
             <input class="form-control" name="password" type="password">
           </div>
-          <button class="btn btn-primary w-100" type="submit">Log In</button>
+          <button class="btn btn-primary w-100" type="submit">{{ t.btn_login }}</button>
         </form>
         <hr>
-        <p class="text-center mb-0">No account? <a href="/register">Register</a></p>
+        <p class="text-center mb-0">{{ t.login_no_account }} <a href="/register">{{ t.btn_register }}</a></p>
       </div>
     </div>
   </div>

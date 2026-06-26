@@ -1,39 +1,38 @@
 {% extends "layout.html" %}
-{% block title %}Edit Task{% endblock %}
 {% block main %}
 <div class="row justify-content-center">
   <div class="col-md-6">
-    <h2 class="mb-4"><i class="bi bi-pencil"></i> Edit Task</h2>
+    <h2 class="mb-4"><i class="bi bi-pencil"></i> {{ t.title_edit_task }}</h2>
     <form method="post" action="/edit/{{ task.id }}">
       <div class="mb-3">
-        <label class="form-label fw-semibold">Title <span class="text-danger">*</span></label>
+        <label class="form-label fw-semibold">{{ t.label_title }} <span class="text-danger">*</span></label>
         <input autofocus class="form-control" name="title" type="text" value="{{ task.title }}" required>
       </div>
       <div class="mb-3">
-        <label class="form-label fw-semibold">Description</label>
+        <label class="form-label fw-semibold">{{ t.label_description }}</label>
         <textarea class="form-control" name="description" rows="3">{{ task.description or '' }}</textarea>
       </div>
       <div class="row">
         <div class="col-md-4 mb-3">
-          <label class="form-label fw-semibold">Category</label>
+          <label class="form-label fw-semibold">{{ t.label_category }}</label>
           <input class="form-control" name="category" type="text" value="{{ task.category or '' }}">
         </div>
         <div class="col-md-4 mb-3">
-          <label class="form-label fw-semibold">Priority</label>
+          <label class="form-label fw-semibold">{{ t.label_priority }}</label>
           <select class="form-select" name="priority">
-            <option value="low" {% if task.priority == 'low' %}selected{% endif %}>Low</option>
-            <option value="medium" {% if task.priority == 'medium' %}selected{% endif %}>Medium</option>
-            <option value="high" {% if task.priority == 'high' %}selected{% endif %}>High</option>
+            <option value="low" {% if task.priority == 'low' %}selected{% endif %}>{{ t.priority_low }}</option>
+            <option value="medium" {% if task.priority == 'medium' %}selected{% endif %}>{{ t.priority_medium }}</option>
+            <option value="high" {% if task.priority == 'high' %}selected{% endif %}>{{ t.priority_high }}</option>
           </select>
         </div>
         <div class="col-md-4 mb-3">
-          <label class="form-label fw-semibold">Due Date</label>
+          <label class="form-label fw-semibold">{{ t.label_due_date }}</label>
           <input class="form-control" name="due_date" type="date" value="{{ task.due_date or '' }}">
         </div>
       </div>
       <div class="d-flex gap-2">
-        <button class="btn btn-primary" type="submit"><i class="bi bi-save"></i> Save Changes</button>
-        <a href="/" class="btn btn-outline-secondary">Cancel</a>
+        <button class="btn btn-primary" type="submit"><i class="bi bi-save"></i> {{ t.btn_save }}</button>
+        <a href="/" class="btn btn-outline-secondary">{{ t.btn_cancel }}</a>
       </div>
     </form>
   </div>
